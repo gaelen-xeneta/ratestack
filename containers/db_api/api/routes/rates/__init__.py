@@ -1,3 +1,5 @@
+""" Handler code for the /rates URI."""
+
 # import API application modules
 from api import APP, request
 from api.parameters import process_request_parameters
@@ -11,6 +13,7 @@ from api.db.prices import get_prices
 
 @APP.route("/rates", methods=["GET"])
 def get_rates():
+    """Handler code for the GET method."""
     # process request parameters and log the results
     args = process_request_parameters(request.args.to_dict())
     APP.logger.debug(str(args))
