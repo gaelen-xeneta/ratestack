@@ -13,9 +13,9 @@ This prototype runs two docker containers. The PostgreSQL container provided in 
 Each container is defined in its own subdirectory.
 ```
 .
-├── run
+├── run                # Simple executable shell script to build and start containers
 ├── compose.yml
 └── containers/
-    ├── db/
-    └── db_api/
+    ├── db/            # PostgreSQL database container provided by Xeneta
+    └── db_api/        # Flask application providing low level HTTP API
 ```
