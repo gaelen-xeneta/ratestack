@@ -8,5 +8,5 @@ services:
   database:
     build: containers/db
 # Uncomment to expose the database on the host machine
-    ports:
-      - "5432:5432"
+#    ports:
+#      - "5432:5432"
