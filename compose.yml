@@ -1,0 +1,11 @@
+services:
+  app:
+    build: containers/app
+    links:
+      - "database"
+    ports:
+      - "8000:5000"
+  database:
+    build: containers/db
+    ports:
+      - "5432:5432"
