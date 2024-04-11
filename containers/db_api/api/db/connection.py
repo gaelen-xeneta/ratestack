@@ -4,7 +4,7 @@ import time
 
 class RetryDecorator:
 
-    def __init__(self, max_attempts=5, delay=0.1):
+    def __init__(self, max_attempts=8, delay=0.5):
         self.delay = delay
         self.max_attempts = max_attempts
 
@@ -22,16 +22,18 @@ class RetryDecorator:
             try:
                 results = self.func(*args, **kwargs)
 
-            except TypeError as error:
+            except psycopg2.OperationalError:
                 if attempts == self.max_attempts:
                     raise
 
-            finally:
                 time.sleep(attempts * self.delay)
+                self.delay = self.delay * 2
                 attempts += 1
 
+        return results
 
-@RetryDecorator(5, 0.5)
+
+@RetryDecorator()
 def get_connection():
     return psycopg2.connect(
         host="database",
