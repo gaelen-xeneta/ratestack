@@ -3,6 +3,8 @@ from api.db import QUERIES
 
 
 def get_prices(origins: list, destinations: list, date_from: str, date_to: str):
+    """Given a list of origin port codes, destination port codes, and a range of dates,
+    return a list of pricing data."""
     cur = APP.db_conn.cursor()
 
     # get a list of all prices for all combinations of origin port code and destination

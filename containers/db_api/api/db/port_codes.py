@@ -3,7 +3,7 @@ from api.db import QUERIES
 
 
 def get_region_port_codes(slug: str):
-    """Given a region slug, get a list of all port codes within the region"""
+    """Given a region slug, return a list of all port codes within the region."""
     cur = APP.db_conn.cursor()
 
     # get a list of region slugs for the current region and all children

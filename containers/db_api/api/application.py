@@ -1,3 +1,7 @@
+""" Flask application definition.
+
+Provides a top level Flask object. """
+
 # external dependency imports
 from flask import Flask, request
 

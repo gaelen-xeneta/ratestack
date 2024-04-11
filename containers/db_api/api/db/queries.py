@@ -1,3 +1,5 @@
+""" Load SQL query templates into a dictionary by filename. """
+
 import os
 
 QUERIES = dict()
