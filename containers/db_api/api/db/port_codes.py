@@ -1,3 +1,5 @@
+from flask import abort
+
 from api import APP
 from api.db import QUERIES
 
@@ -12,6 +14,9 @@ def get_region_port_codes(slug: str):
 
     cur.execute(query)
     slugs = [row[0] for row in cur.fetchall()]
+
+    if len(slugs) == 0:
+        abort(400, f"Unable to find region or children: {slug}")
 
     # use the list of slugs to get a list of port codes
     query = QUERIES["get_region_ports"].format(
