@@ -20,14 +20,14 @@ def aggregate_prices(prices: list):
             aggregated.append(
                 {
                     "day": str(date),
-                    "average_prices": None,
+                    "average_price": None,
                 }
             )
         else:
             aggregated.append(
                 {
                     "day": str(date),
-                    "average_prices": int(sum(prices) / len(prices)),
+                    "average_price": int(sum(prices) / len(prices)),
                 }
             )
 
