@@ -37,6 +37,9 @@ class Port(Location):
 
 def get_location(value: str):
     """Given a location string determine if it is a REGION or a PORT and return a Location object."""
+    if len(value) == 0:
+        raise ValueError("Location cannot be blank")
+
     if len(value) == 5 and all([c in Port.CHARS for c in value]):
         return Port(value)
 
